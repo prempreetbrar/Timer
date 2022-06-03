@@ -12,7 +12,7 @@ export class Timer {
   }
 
   constructor(browser, durationInput, button, timerBorder) {
-    this.browser = browser;
+    this.browser = browser.toLowerCase();
     this.durationInput = durationInput;
     this.button = button;
     this.timerBorder = timerBorder;
@@ -31,6 +31,9 @@ export class Timer {
       this.toggleButton();
       this.timerBorder.setAttribute("stroke","rgb(111,95,252)");
       this.timerBorder.setAttribute("stroke-dasharray", this.circumference);
+      if (this.browser === "safari") {
+        this.timerBorder.setAttribute("stroke-dasharray", `${this.circumference} ${this.circumference}`);
+      }
       this.timerBorder.setAttribute("stroke-dashoffset", 0);
 
       this.button.addEventListener("click", this.onPauseClick);
@@ -65,16 +68,7 @@ export class Timer {
 
   onTick() {
     const oldOffset = this.timerBorder.getAttribute("stroke-dashoffset");
-    let currentOffset;
-
-    switch (this.browser.toLowerCase()) {
-      case "safari":
-        currentOffset = oldOffset + this.circumference / this.totalTicks;
-        break;
-      case "chrome":
-        currentOffset = oldOffset - this.circumference / this.totalTicks;
-        break; 
-    }
+    const currentOffset = oldOffset - this.circumference / this.totalTicks;
     this.timerBorder.setAttribute("stroke-dashoffset", currentOffset);
   }
 
