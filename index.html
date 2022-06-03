@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head> 
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  </head>
+
+  <body>
+    <div class="timer">
+
+      <svg class="dial">
+        <circle id="backgroundBorder"
+          r="190" 
+          cx="200" 
+          cy="200"
+          stroke="black"
+          stroke-dashoffset="0"
+        />
+
+        <circle id="timerBorder"
+          r="190" 
+          cx="200" 
+          cy="200"
+          stroke="black"
+          stroke-dashoffset="0"
+        />
+      </svg>
+
+      
+      <div class="controls">
+        <input id="durationInput" value="30"/>
+        <button id="button"><i id="icon" class="fas fa-play"></i></button>
+      </div>
+
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+
+</html>
