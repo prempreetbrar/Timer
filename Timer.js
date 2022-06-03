@@ -31,7 +31,7 @@ export class Timer {
       this.toggleButton();
       this.timerBorder.setAttribute("stroke","rgb(111,95,252)");
       this.timerBorder.setAttribute("stroke-dasharray", this.circumference);
-      if (this.browser === "safari") {
+      if (this.browser === "safari" || this.browser === "firefox") {
         this.timerBorder.setAttribute("stroke-dasharray", `${this.circumference} ${this.circumference}`);
       }
       this.timerBorder.setAttribute("stroke-dashoffset", 0);
